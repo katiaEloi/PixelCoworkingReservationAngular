@@ -16,6 +16,14 @@
 # Mono auto generated files
 mono_crash.*
 
+
+# Node / Angular
+**/node_modules/
+**/dist/
+**/.angular/
+**/.vite/
+.vscode/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

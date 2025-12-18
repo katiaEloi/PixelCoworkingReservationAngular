@@ -1,0 +1,39 @@
+<p>Espacios</p>
+<div style="padding: 12px; border: 1px solid #ddd; border-radius: 8px;margin: 16px;">
+ <h3>Nuevo</h3>
+
+ <input [ngModel] = "model.name" placeholder="Nombre"/>
+
+ <select [(ngModel)]="model.type" style="margin: left 8px;">
+    <option [ngValue]="1">Sala privada grande</option>
+    <option [ngValue]="2">Sala pequeña con aseo privado</option>
+    <option [ngValue]="3">Sala coworking</option>
+    <option [ngValue]="4">Sala virtual</option>
+ </select>
+
+ <label style="margin-left: 8px;">
+  <input type="checkbox" [(ngModel)] = "model.hasPrivateBathroom"/>
+  Aseo privado
+ </label>
+
+ <button (click)="create()" style="margin-left: 8px;">Guardar</button>
+</div>
+
+<div *ngIf="error" style="color:red">{{ error }}</div>
+<table>
+    <thead>
+      <tr>
+        <th>Id</th><th>Nombre</th><th>Tipo</th><th>Capacidad</th><th>Aseo</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let s of spaces">
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.type}}</td>
+            <td>{{s.capacity}}</td>
+            <td>{{s.hasPrivateBathroom ? 'Si' : 'No'}}</td>
+        </tr>
+    </tbody>
+</table>
+
